@@ -1,4 +1,4 @@
-package betternoise;
+package uniformnoise;
 
 /**
  * Extracted from https://github.com/Auburn/FastNoise
