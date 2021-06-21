@@ -25,7 +25,7 @@ uniformNoise(float x, float y, float z, int octaves, float persistence)
 
 ### Image Maps
 
-The images below compare how a colour gradient is mapped using raw noise values from *FastNoiseLite* (raw) against the transformed output from *UniformNoise* (uniform). The uniform images display a full range of the gradient.
+The images below compare how 2D noise values map to a colour gradient. Noise values from *FastNoiseLite* (raw) are shown against values from *UniformNoise* (uniform). Note how the uniform images display a fuller and more balanced range of the colour gradient.
 
 <table>
   <tr>
@@ -452,10 +452,12 @@ Compare distribution of noise values over 1,000,000 samples.
 
 ## Appendix: Function Derivation
 
+This is how the functions to transform raw noise into uniformly distributed noise were derived:
+
 * Generate millions of sample Perlin noise values
 * Sort these values
-* Sample every Nth value from sorted values to list of coordinates 
-* Model values as coordinates and plot an approximate *cumulative distribution*
-* Fit a curve to the approximate cumulative distribution with *Fityk* (using [EMG](http://fityk.nieto.pl/model.html?highlight=emg#built-in-functions)+Polynomial degree 6) to derive an approximate *cumulative distribution **function***
+* Select every Nth value from the sorted values, joining it with its percentile position in the list, to form a coordinate
+* From the coordinates, plot an approximate *cumulative distribution*
+* Fit a curve to the approximate cumulative distribution with *Fityk* (using [EMG](http://fityk.nieto.pl/model.html?highlight=emg#built-in-functions)+*Polynomial degree 6*) to derive an approximate *cumulative distribution **function***
 * Approximate the function with a quintic polynomial over a reduced range with [LolRemez](https://github.com/samhocevar/lolremez).
-* Find roots (f(x)=0; f(x)=1) for the polynomial (since can dip over/above) -- restrict range to this in method (return 0 if below; 1 if above)
+* Find roots (f(x)=0; f(x)=1) for the approximate polynomial (since it may return x>1 or x<0 on some inputs); restrict range to this in method (return 0 if below; 1 if above)

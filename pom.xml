@@ -45,9 +45,6 @@
 						<goals>
 							<goal>jar</goal>
 						</goals>
-						<configuration>
-							<doclint>none</doclint> <!--Prevent Javadoc incomplete errors -->
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>
