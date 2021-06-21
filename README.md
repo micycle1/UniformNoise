@@ -460,4 +460,4 @@ This is how the functions to transform raw noise into uniformly distributed nois
 * From the coordinates, plot an approximate *cumulative distribution*
 * Fit a curve to the approximate cumulative distribution with *Fityk* (using [EMG](http://fityk.nieto.pl/model.html?highlight=emg#built-in-functions)+*Polynomial degree 6*) to derive an approximate *cumulative distribution **function***
 * Approximate the function with a quintic polynomial over a reduced range with [LolRemez](https://github.com/samhocevar/lolremez).
-* Find roots (f(x)=0; f(x)=1) for the approximate polynomial (since it may return x>1 or x<0 on some inputs); restrict range to this in method (return 0 if below; 1 if above)
+* Find roots (a=f(x)=0; b=f(x)=1) for the approximate polynomial (since it may return x>1 or x<0 on some inputs); restrict range to these roots in methods (return 0 if below root a; 1 if above root b)
