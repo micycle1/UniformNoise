@@ -22,7 +22,7 @@ public class UniformNoise {
 	/**
 	 * Creates a UniformNoise instance with the given seed.
 	 */
-	public UniformNoise(int seed) {
+	public UniformNoise(final int seed) {
 		this.seed = seed;
 	}
 
@@ -38,7 +38,7 @@ public class UniformNoise {
 	 * 
 	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
 	 */
-	public float uniformNoise(float x, float y) {
+	public float uniformNoise(final float x, final float y) {
 		return cdf2D(PerlinNoiseLite.SinglePerlin(seed, x, y));
 	}
 
@@ -47,7 +47,7 @@ public class UniformNoise {
 	 * 
 	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
 	 */
-	public float uniformNoise(double x, double y) {
+	public float uniformNoise(final double x, final double y) {
 		return cdf2D(PerlinNoiseLite.SinglePerlin(seed, (float) x, (float) y));
 	}
 
@@ -56,7 +56,7 @@ public class UniformNoise {
 	 * 
 	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
 	 */
-	public float uniformNoise(float x, float y, float z) {
+	public float uniformNoise(final float x, final float y, final float z) {
 		return cdf3D(PerlinNoiseLite.SinglePerlin(seed, x, y, z));
 	}
 
@@ -65,7 +65,7 @@ public class UniformNoise {
 	 * 
 	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
 	 */
-	public float uniformNoise(double x, double y, double z) {
+	public float uniformNoise(final double x, final double y, final double z) {
 		return cdf3D(PerlinNoiseLite.SinglePerlin(seed, (float) x, (float) y, (float) z));
 	}
 
@@ -79,7 +79,7 @@ public class UniformNoise {
 	 *                    successive octave
 	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
 	 */
-	public float uniformNoise(float x, float y, int octaves, float persistence) {
+	public float uniformNoise(final float x, final float y, final int octaves, float persistence) {
 		float noise = 0;
 
 		float frequency = 1;
@@ -102,7 +102,7 @@ public class UniformNoise {
 	 *                    successive octave
 	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
 	 */
-	public float uniformNoise(double x, double y, int octaves, double persistence) {
+	public float uniformNoise(final double x, final double y, final int octaves, final double persistence) {
 		return uniformNoise((float) x, (float) y, octaves, (float) persistence);
 	}
 
@@ -117,7 +117,7 @@ public class UniformNoise {
 	 *                    successive octave
 	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
 	 */
-	public float uniformNoise(float x, float y, float z, int octaves, float persistence) {
+	public float uniformNoise(final float x, final float y, final float z, final int octaves, float persistence) {
 		float noise = 0;
 
 		float frequency = 1;
@@ -141,7 +141,7 @@ public class UniformNoise {
 	 *                    successive octave
 	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
 	 */
-	public float uniformNoise(double x, double y, double z, int octaves, double persistence) {
+	public float uniformNoise(final double x, final double y, final double z, final int octaves, final double persistence) {
 		return uniformNoise((float) x, (float) y, (float) z, octaves, (float) persistence);
 	}
 
@@ -154,7 +154,7 @@ public class UniformNoise {
 	 * @param x raw (gaussian-like) perlin noise between [-1...1]
 	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
 	 */
-	private static float cdf2D(float x) {
+	private static float cdf2D(final float x) {
 		if (x < -0.729) {
 			return 0;
 		}
@@ -173,7 +173,7 @@ public class UniformNoise {
 	 * @param x raw (gaussian-like) perlin noise between [-1...1]
 	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
 	 */
-	private static float cdf3D(float x) {
+	private static float cdf3D(final float x) {
 		if (x < -0.662) {
 			return 0;
 		}
@@ -194,7 +194,7 @@ public class UniformNoise {
 	 * @param x raw (gaussian-like) perlin noise between [-1...1]
 	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
 	 */
-	private static float cdfOctaves2D(float x) {
+	private static float cdfOctaves2D(final float x) {
 		if (x < -0.897) {
 			return 0;
 		}
@@ -218,7 +218,7 @@ public class UniformNoise {
 	 * @param x raw (gaussian-like) 3D perlin noise between [-1...1]
 	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
 	 */
-	private static float cdfOctaves3D(float x) {
+	private static float cdfOctaves3D(final float x) {
 		if (x < -0.796) {
 			return 0;
 		}
