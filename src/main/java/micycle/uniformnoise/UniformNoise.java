@@ -1,4 +1,4 @@
-package uniformnoise;
+package micycle.uniformnoise;
 
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -29,12 +29,30 @@ public class UniformNoise {
 	}
 
 	/**
+	 * Generates single-octave 2D uniform perlin noise for the coordinates given.
+	 * 
+	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
+	 */
+	public static float uniformNoise(double x, double y) {
+		return cdf2D(PerlinNoiseLite.SinglePerlin(seed, (float) x, (float) y));
+	}
+
+	/**
 	 * Single-octave 3D uniform perlin noise for the coordinates given.
 	 * 
 	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
 	 */
 	public static float uniformNoise(float x, float y, float z) {
 		return cdf3D(PerlinNoiseLite.SinglePerlin(seed, x, y, z));
+	}
+
+	/**
+	 * Single-octave 3D uniform perlin noise for the coordinates given.
+	 * 
+	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
+	 */
+	public static float uniformNoise(double x, double y, double z) {
+		return cdf3D(PerlinNoiseLite.SinglePerlin(seed, (float) x, (float) y, (float) z));
 	}
 
 	/**
@@ -61,6 +79,20 @@ public class UniformNoise {
 	}
 
 	/**
+	 * Generates multi-octave 2D uniform perlin noise for the coordinates given.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param octaves     the number of levels of detail the perlin noise has
+	 * @param persistence determines how quickly the amplitudes fall for each
+	 *                    successive octave
+	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
+	 */
+	public static float uniformNoise(double x, double y, int octaves, double persistence) {
+		return uniformNoise((float) x, (float) y, octaves, (float) persistence);
+	}
+
+	/**
 	 * Generates multi-octave 3D uniform perlin noise for the coordinates given.
 	 * 
 	 * @param x
@@ -82,6 +114,21 @@ public class UniformNoise {
 			frequency *= 2; // lacunarity
 		}
 		return cdfOctaves3D(noise);
+	}
+
+	/**
+	 * Generates multi-octave 3D uniform perlin noise for the coordinates given.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param octaves     the number of levels of detail the perlin noise has
+	 * @param persistence determines how quickly the amplitudes fall for each
+	 *                    successive octave
+	 * @return approximately uniformly distributed noise value between [ 0, 1 ]
+	 */
+	public static float uniformNoise(double x, double y, double z, int octaves, double persistence) {
+		return uniformNoise((float) x, (float) y, (float) z, octaves, (float) persistence);
 	}
 
 	/**

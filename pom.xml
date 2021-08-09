@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>micycle</groupId>
 	<artifactId>LinearNoise</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
-	<name>LinearNoise</name>
-	<description>Linear Perlin Noise</description>
+	<version>1.1</version>
+	<name>UniformNoise</name>
+	<description>Uniform Perlin Noise</description>
 
 	<build>
 		<plugins>

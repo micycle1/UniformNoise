@@ -14,11 +14,12 @@ Functions have been derived to transform raw Perlin noise values, having the dis
 
 ## Usage
 
+*UniformNoise* is available as a Maven dependency [via Jitpack](https://jitpack.io/#micycle1/UniformNoise).
 ```
-uniformNoise(float x, float y) // single octave
-uniformNoise(float x, float y, float z) // single octave
-uniformNoise(float x, float y, int octaves, float persistence)
-uniformNoise(float x, float y, float z, int octaves, float persistence)
+uniformNoise(x, y) // single octave 2D
+uniformNoise(x, y, z) // single octave 3D
+uniformNoise(x, y, octaves, persistence) // multi-octave 2D
+uniformNoise(x, y, z, octaves, persistence) // multi-octave 3D
 ```
 
 ## Illustration

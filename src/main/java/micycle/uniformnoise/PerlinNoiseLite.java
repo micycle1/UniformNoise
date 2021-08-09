@@ -1,4 +1,4 @@
-package uniformnoise;
+package micycle.uniformnoise;
 
 /**
  * Extracted from https://github.com/Auburn/FastNoise
