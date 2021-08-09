@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>micycle</groupId>
-	<artifactId>LinearNoise</artifactId>
+	<artifactId>UniformNoise</artifactId>
 	<version>1.1</version>
 	<name>UniformNoise</name>
 	<description>Uniform Perlin Noise</description>
